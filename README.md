@@ -1,4 +1,4 @@
-# Android device tree for Redmi missi (missi)
+# Android device TWRP tree for Redmi missi (missi)
 
 | Feature | Specification |
 |--------|---------------|
