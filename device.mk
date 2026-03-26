@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-LOCAL_PATH := device/xiaomi/missi
+LOCAL_PATH := device/xiaomi/serenity
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -13,16 +13,11 @@ AB_OTA_POSTINSTALL_CONFIG += \
     FILESYSTEM_TYPE_system=ext4 \
     POSTINSTALL_OPTIONAL_system=true
 
-# Boot control HAL
+# Boot control HAL - Shared Library Version
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
-
-PRODUCT_PACKAGES += \
-    bootctrl.ums9230
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.ums9230 \
+    android.hardware.boot@1.0-service \
+    bootctrl.serenity \
     libgptutils \
     libz \
     libcutils
