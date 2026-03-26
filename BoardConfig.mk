@@ -53,21 +53,32 @@ TARGET_NO_BOOTLOADER := true
 TARGET_SCREEN_DENSITY := 320
 TARGET_USES_VULKAN := true
 
-# Kernel
+# Recovery Header (Crucial for Kernel 5.15)
 BOARD_BOOTIMG_HEADER_VERSION := 4
+
+# Architecture Offsets
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8 bootconfig bootconfig
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_RAMDISK_OFFSET := 0x05400000
+# For Header v4, these are often ignored but good to have for packing
+BOARD_RAMDISK_OFFSET := 0x01100000 
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+
+# Command Line & Bootconfig
+BOARD_KERNEL_CMDLINE := console=ttyS1,115200n8
+BOARD_BOOTCONFIG := bootconfig
+
+# MKBOOTIMG Arguments
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
+
+# Kernel Specifics
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-TARGET_KERNEL_CONFIG := missi_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/missi
 
+# Android 15 Security Flag (Prevents bootloop after flashing)
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 # Kernel - prebuilt
 TARGET_FORCE_PREBUILT_KERNEL := true
 ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
