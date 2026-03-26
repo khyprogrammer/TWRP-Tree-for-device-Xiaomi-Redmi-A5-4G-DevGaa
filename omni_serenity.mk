@@ -12,13 +12,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit some common Omni stuff.
 $(call inherit-product, vendor/omni/config/common.mk)
 
-# Inherit from missi device
+# Inherit from serenity device
 $(call inherit-product, device/xiaomi/missi/device.mk)
 
-PRODUCT_DEVICE := missi
-PRODUCT_NAME := omni_missi
+PRODUCT_DEVICE := serenity
+PRODUCT_NAME := omni_serenity
 PRODUCT_BRAND := Redmi
-PRODUCT_MODEL := missi
+PRODUCT_MODEL := serenity
 PRODUCT_MANUFACTURER := xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
