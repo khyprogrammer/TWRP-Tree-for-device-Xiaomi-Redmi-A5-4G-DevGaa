@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_missi.mk
+    $(LOCAL_DIR)/omni_serenity.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_missi-user \
-    omni_missi-userdebug \
-    omni_missi-eng
+    omni_serenity-user \
+    omni_serenity-userdebug \
+    omni_serenity-eng
