@@ -13,7 +13,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit from serenity device
-$(call inherit-product, device/xiaomi/missi/device.mk)
+$(call inherit-product, device/xiaomi/serenity/device.mk)
 
 PRODUCT_DEVICE := serenity
 PRODUCT_NAME := omni_serenity
